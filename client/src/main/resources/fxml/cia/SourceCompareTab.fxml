@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.SplitPane?><?import javafx.scene.control.Tab?>
+<Tab fx:id="tab" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+		fx:controller="uet.fit.client.ui.controller.cia.SourceCompareController">
+	<SplitPane fx:id="splitPane" dividerPositions="0.5">
+		<fx:include fx:id="scvOldVersion" source="SourceCodeView.fxml"/>
+		<fx:include fx:id="scvNewVersion" source="SourceCodeView.fxml"/>
+	</SplitPane>
+</Tab>

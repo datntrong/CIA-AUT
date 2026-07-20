@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+	<Appenders>
+		<!-- CONSOLE -->
+		<Console name="Console" target="SYSTEM_ERR">
+			<PatternLayout pattern="%d{HH:mm:ss.SSS} [%T] [%p] %c - %m%n"/>
+		</Console>
+
+		<!-- CLIENT -->
+		<RandomAccessFile name="File" fileName="client-${date:yyyy-MM-dd_HH-mm-ss-SSS}.log">
+			<PatternLayout pattern="%d{HH:mm:ss.SSS} [%T] [%p] %c - %m%n"/>
+		</RandomAccessFile>
+		<Async name="AsyncFile">
+			<AppenderRef ref="File"/>
+		</Async>
+	</Appenders>
+
+	<Loggers>
+		<Logger name="uet.fit.client" level="trace">
+			<AppenderRef ref="AsyncFile"/>
+		</Logger>
+
+		<Root level="info">
+			<AppenderRef ref="Console"/>
+		</Root>
+	</Loggers>
+</Configuration>

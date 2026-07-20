@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.Pane?><?import javafx.scene.shape.SVGPath?>
+<Pane prefWidth="16" prefHeight="16">
+	<SVGPath fill="#F4AF3D" content="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0" opacity="0.6"/>
+	<SVGPath fill="#231F20" content="M7.3 11 5 5h1.2L8 9.8 9.8 5H11l-2.3 6H7.3Z"/>
+</Pane>

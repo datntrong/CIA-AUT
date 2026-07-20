@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TreeTableColumn?>
+<?import javafx.scene.control.TreeTableView?>
+
+<SplitPane fx:id="content" dividerPositions="0.3" stylesheets="/css/componentStyle.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uet.fit.client.ui.controller.cia.ChangesViewController">
+	<TabPane tabClosingPolicy="UNAVAILABLE">
+		<Tab text="Project Files">
+         <content>
+            <TreeTableView fx:id="ttvFileStructure" prefHeight="200.0" prefWidth="200.0" showRoot="false" stylesheets="/css/cia/result_style.css">
+              <columns>
+                <TreeTableColumn fx:id="clComponentFS" editable="false" prefWidth="75.0" sortable="false" text="Component" />
+                <TreeTableColumn fx:id="clImpactFS" editable="false" maxWidth="60.0" minWidth="60.0" prefWidth="60.0" resizable="false" sortable="false" style="-fx-alignment: CENTER;" text="Impact" />
+              </columns>
+               <columnResizePolicy>
+                  <TreeTableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+            </TreeTableView>
+         </content>
+		</Tab>
+		<Tab text="Language Components">
+			<content>
+				<TreeTableView fx:id="ttvLanguageStructure" prefHeight="200.0" prefWidth="200.0" showRoot="false" stylesheets="/css/cia/result_style.css">
+					<columns>
+						<TreeTableColumn fx:id="clComponentLS" editable="false" prefWidth="75.0" sortable="false" text="Component" />
+						<TreeTableColumn fx:id="clImpactLS" editable="false" maxWidth="60.0" minWidth="60.0" prefWidth="60.0" resizable="false" sortable="false" style="-fx-alignment: CENTER;" text="Impact" />
+					</columns>
+					<columnResizePolicy>
+						<TreeTableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+					</columnResizePolicy>
+				</TreeTableView>
+			</content>
+		</Tab>
+	</TabPane>
+	<TabPane fx:id="tpMain" tabClosingPolicy="UNAVAILABLE">
+		<Tab text="Function Modifications">
+			<TableView fx:id="tvModificationDetails" stylesheets="/css/cia/result_style.css">
+				<columns>
+					<TableColumn fx:id="clFunction" text="Function" />
+					<TableColumn fx:id="clOldPath" text="Old Path" />
+					<TableColumn fx:id="clNewPath" text="New Path" />
+					<TableColumn fx:id="clType" text="Type" />
+				</columns>
+				<columnResizePolicy>
+					<TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+				</columnResizePolicy>
+			</TableView>
+		</Tab>
+      <Tab text="Impacted Components">
+         <content>
+            <TableView fx:id="tvImpactedComponents" stylesheets="/css/cia/result_style.css">
+               <columns>
+                  <TableColumn fx:id="clICComponent" maxWidth="6000.0" prefWidth="90.0" text="Component" />
+                  <TableColumn fx:id="clICPath" prefWidth="90.0" text="Path" />
+                  <TableColumn fx:id="clICType" maxWidth="100.0" minWidth="100.0" prefWidth="-1.0" resizable="false" text="Type" />
+                  <TableColumn fx:id="clICImpact" maxWidth="60.0" minWidth="60.0" prefWidth="-1.0" resizable="false" style="-fx-alignment: CENTER;" text="Impact" />
+               </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+            </TableView>
+         </content>
+      </Tab>
+		<Tab fx:id="tabSource" text="Source Codes">
+			<TabPane fx:id="tpSource" tabClosingPolicy="ALL_TABS" />
+		</Tab>
+	</TabPane>
+</SplitPane>

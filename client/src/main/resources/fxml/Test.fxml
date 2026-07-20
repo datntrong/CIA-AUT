@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?><?import javafx.scene.layout.*?>
+
+<?import uet.fit.client.ui.view.LogView?><?import javafx.scene.image.ImageView?><?import javafx.scene.image.Image?>
+<fx:root dividerPositions="0.3287037037037037" type="SplitPane" xmlns="http://javafx.com/javafx/11.0.1"
+		xmlns:fx="http://javafx.com/fxml/1" fx:controller="uet.fit.client.ui.controller.test.TestController">
+	<items>
+		<AnchorPane>
+			<children>
+				<SplitPane dividerPositions="0.5625" layoutX="26.0" layoutY="85.0" orientation="VERTICAL"
+						AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+						AnchorPane.topAnchor="0.0">
+					<items>
+						<AnchorPane>
+							<children>
+								<TreeView fx:id="projectTree" layoutX="13.0" layoutY="35.0"
+										onMouseClicked="#projectTree_Clicked" AnchorPane.bottomAnchor="0.0"
+										AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+										AnchorPane.topAnchor="0.0"/>
+							</children>
+						</AnchorPane>
+						<AnchorPane>
+							<children>
+								<ScrollPane fx:id="spToolbarContainer" hbarPolicy="NEVER" vbarPolicy="NEVER"
+										AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+										AnchorPane.topAnchor="0.0">
+									<ToolBar fx:id="toolbar">
+										<Button fx:id="btnAdd" disable="true" mnemonicParsing="false"
+												onAction="#addButton_Clicked" text="Add">
+											<tooltip>
+												<Tooltip text="Add a new test case" />
+											</tooltip>
+											<graphic>
+												<ImageView>
+													<Image url="/images/267-plus.png"/>
+												</ImageView>
+											</graphic>
+										</Button>
+										<Button fx:id="btnRun" mnemonicParsing="false" disable="true"
+												onAction="#run_Clicked" text="Run">
+											<tooltip>
+												<Tooltip text="Run test case(s)" />
+											</tooltip>
+											<graphic>
+												<ImageView>
+													<Image url="/images/285-play3.png"/>
+												</ImageView>
+											</graphic>
+										</Button>
+										<MenuButton text="Generate">
+											<items>
+												<MenuItem fx:id="btnAutogenCFDS" text="With execution" onAction="#autogenCFDS_Clicked">
+												</MenuItem>
+												<MenuItem fx:id="btnAutogenBasis" text="Without execution" onAction="#autogenBasisPath_Clicked">
+												</MenuItem>
+												<MenuItem fx:id="btnAutogenUserCode" text="User code" onAction="#autogenUserCode_Clicked">
+												</MenuItem>
+											</items>
+
+											<tooltip>
+												<Tooltip text="Automated test data generation" />
+											</tooltip>
+
+											<graphic>
+												<ImageView>
+													<Image url="/images/047-stack.png"/>
+												</ImageView>
+											</graphic>
+										</MenuButton>
+										<Button fx:id="btnCoverage" mnemonicParsing="false" disable="true"
+												onAction="#viewCoverage_Clicked" text="Coverage">
+											<tooltip>
+												<Tooltip text="View coverage" />
+											</tooltip>
+											<graphic>
+												<ImageView>
+													<Image url="/images/155-pie-chart.png"/>
+												</ImageView>
+											</graphic>
+										</Button>
+										<Button fx:id="btnDuplicate" mnemonicParsing="false" disable="true"
+												onAction="#duplicate_Clicked" text="Duplicate">
+											<tooltip>
+												<Tooltip text="Duplicate a test case" />
+											</tooltip>
+											<graphic>
+												<ImageView>
+													<Image url="/images/045-copy.png"/>
+												</ImageView>
+											</graphic>
+										</Button>
+										<Button fx:id="btnDelete" mnemonicParsing="false" disable="true"
+												onAction="#deleteButton_Clicked" text="Delete">
+											<tooltip>
+												<Tooltip text="Delete test case(s)" />
+											</tooltip>
+											<graphic>
+												<ImageView>
+													<Image url="/images/173-bin.png"/>
+												</ImageView>
+											</graphic>
+										</Button>
+										<Button fx:id="btnGenReport" mnemonicParsing="false"
+												onAction="#genReportButton_Clicked" text="Report">
+											<tooltip>
+												<Tooltip text="Generate overview report" />
+											</tooltip>
+											<graphic>
+												<ImageView>
+													<Image url="/images/281-report.png"/>
+												</ImageView>
+											</graphic>
+										</Button>
+										<Button fx:id="btnRefresh" disable="true" mnemonicParsing="false"
+												onAction="#refreshButtonClicked" text="Refresh">
+											<tooltip>
+												<Tooltip text="Refresh test case list" />
+											</tooltip>
+											<graphic>
+												<ImageView>
+													<Image url="/images/303-loop2.png"/>
+												</ImageView>
+											</graphic>
+										</Button>
+										<Button fx:id="btnExport" mnemonicParsing="false"
+												onAction="#export_Clicked" text="Export">
+											<tooltip>
+												<Tooltip text="Export test cases" />
+											</tooltip>
+										</Button>
+										<Button fx:id="btnImport" mnemonicParsing="false"
+												onAction="#import_Clicked" text="Import">
+											<tooltip>
+												<Tooltip text="Import test cases" />
+											</tooltip>
+										</Button>
+									</ToolBar>
+								</ScrollPane>
+								<TableView fx:id="testcaseTable" onMouseClicked="#testcase_Clicked"
+										AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+										AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="40.0">
+									<columns>
+										<TableColumn fx:id="nameCol" minWidth="100" text="Name"/>
+										<TableColumn fx:id="statusCol" minWidth="66" text="Status"/>
+										<TableColumn fx:id="coverageCol" minWidth="34" text="Coverage"/>
+										<TableColumn fx:id="colAuthor" minWidth="68" text="Author"/>
+										<TableColumn fx:id="colTime" minWidth="68" text="Created Time"/>
+									</columns>
+									<columnResizePolicy>
+										<TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+									</columnResizePolicy>
+								</TableView>
+							</children>
+						</AnchorPane>
+					</items>
+				</SplitPane>
+			</children>
+		</AnchorPane>
+		<AnchorPane>
+			<children>
+				<SplitPane dividerPositions="0.7133838383838383" orientation="VERTICAL" AnchorPane.bottomAnchor="0.0"
+						AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+					<items>
+						<AnchorPane>
+							<children>
+								<TabPane fx:id="tpMain" layoutX="108.0" layoutY="44.0" tabClosingPolicy="UNAVAILABLE"
+										AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+										AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+									<tabs>
+										<Tab fx:id="tabTestCases" text="Test Case">
+											<content>
+												<TabPane fx:id="tpTestCases"/>
+											</content>
+										</Tab>
+										<Tab fx:id="tabSources" text="Source Code">
+											<content>
+												<TabPane fx:id="tpSourceCodes"/>
+											</content>
+										</Tab>
+										<Tab fx:id="tabReports" text="Report">
+											<content>
+												<TabPane fx:id="tpReports"/>
+											</content>
+										</Tab>
+										<Tab fx:id="tabUserCode" text="User Code">
+											<content>
+												<TabPane fx:id="tpUserCode"/>
+											</content>
+										</Tab>
+										<!--                            <Tab text="Coverage">-->
+										<!--                              <content>-->
+										<!--                                <AnchorPane />-->
+										<!--                              </content>-->
+										<!--                            </Tab>-->
+										<!--                              <Tab text="Untitled Tab">-->
+										<!--                                <content>-->
+										<!--                                  <AnchorPane minHeight="0.0" minWidth="0.0" />-->
+										<!--                                </content>-->
+										<!--                              </Tab>-->
+									</tabs>
+								</TabPane>
+							</children>
+						</AnchorPane>
+						<AnchorPane>
+							<children>
+								<TabPane layoutX="-29.0" layoutY="-44.0" tabClosingPolicy="UNAVAILABLE"
+										AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+										AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+									<tabs>
+										<Tab text="General Logs">
+											<content>
+												<LogView fx:id="lgvGeneral"/>
+											</content>
+										</Tab>
+										<Tab text="Build Logs">
+											<content>
+												<LogView fx:id="lgvBuild"/>
+											</content>
+										</Tab>
+									</tabs>
+								</TabPane>
+							</children>
+						</AnchorPane>
+					</items>
+				</SplitPane>
+			</children>
+		</AnchorPane>
+	</items>
+</fx:root>

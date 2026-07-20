@@ -1,0 +1,62 @@
+.tree-cell .arrow {
+    -fx-background-color: black;
+}
+
+.table-cell {
+    -fx-text-fill: black;
+}
+
+/* Let TreeTableView rows look like TableView rows  */
+.tree-table-row-cell {
+    -fx-background-color: -fx-table-cell-border-color, -fx-background;
+    -fx-background-insets: 0, 0 0 0 0;
+}
+
+.table-row-cell, .tree-cell {
+    -fx-border-width: 1px;
+    -fx-border-color: transparent;
+}
+
+.tree-table-row-cell:selected, .table-row-cell:selected, .tree-cell:selected {
+    -fx-text-fill: black;
+    -fx-border-color: black;
+    -fx-background-color: transparent;
+}
+
+.tree-table-row-cell:selected .tree-table-cell {
+    -fx-text-fill: black;
+}
+
+.tree-table-row-cell:selected .arrow {
+    -fx-background-color: black;
+}
+
+
+.tree-table-row-cell.cia-added, .table-row-cell.cia-added, .tree-cell.cia-added {
+    -fx-background-color: #c6efce;
+}
+
+.tree-table-row-cell.cia-changed, .table-row-cell.cia-changed, .tree-cell.cia-changed {
+    -fx-background-color: #d0d0ff;
+}
+
+.tree-table-row-cell.cia-removed, .table-row-cell.cia-removed, .tree-cell.cia-removed {
+    -fx-background-color: #ffc7ce;
+}
+
+
+.tree-table-row-cell.cia-root, .table-row-cell.cia-root, .tree-cell.cia-root {
+    -fx-text-fill: black;
+    -fx-font-weight: bold;
+}
+
+.tree-table-row-cell.cia-directory, .table-row-cell.cia-directory, .tree-cell.cia-directory {
+    -fx-text-fill: black;
+    -fx-font-weight: bold;
+}
+
+.tree-table-row-cell.cia-file, .table-row-cell.cia-file, .tree-cell.cia-file {
+    -fx-text-fill: black;
+    -fx-font-weight: bold;
+}
+

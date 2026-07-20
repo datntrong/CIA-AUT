@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?><?import javafx.scene.control.Label?><?import javafx.scene.control.Menu?><?import javafx.scene.control.MenuBar?><?import javafx.scene.control.MenuItem?><?import javafx.scene.control.ProgressBar?><?import javafx.scene.control.Tab?><?import javafx.scene.control.TabPane?><?import javafx.scene.layout.AnchorPane?><?import javafx.scene.layout.GridPane?><?import javafx.scene.layout.HBox?><?import javafx.scene.layout.Region?><?import javafx.scene.layout.StackPane?><?import javafx.scene.shape.Circle?><?import uet.fit.client.ui.view.HomeView?><?import uet.fit.client.ui.view.RingProgressIndicator?><?import uet.fit.client.ui.view.TestView?><?import javafx.scene.text.Text?><?import javafx.scene.image.ImageView?><?import javafx.scene.image.Image?>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="600.0" minWidth="900.0"
+		stylesheets="/css/baseStyle.css" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1"
+		fx:controller="uet.fit.client.ui.controller.BaseController">
+	<children>
+		<MenuBar AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
+			<menus>
+				<Menu mnemonicParsing="false" text="File">
+					<items>
+						<MenuItem mnemonicParsing="false" text="Close"/>
+					</items>
+				</Menu>
+				<Menu mnemonicParsing="false" text="Delete">
+					            <items>
+					              <MenuItem mnemonicParsing="false" text="Environment" onAction="#showDeletedEnvWindow" />
+					            </items>
+				</Menu>
+				<Menu mnemonicParsing="false" text="View">
+					<!--              <items>-->
+					<!--                <MenuItem mnemonicParsing="false" text="Action 1" />-->
+					<!--              </items>-->
+				</Menu>
+				<Menu mnemonicParsing="false" text="Help">
+					<!--            <items>-->
+					<!--              <MenuItem mnemonicParsing="false" text="About" />-->
+					<!--            </items>-->
+				</Menu>
+				<!--            <Menu mnemonicParsing="false" text="About">-->
+				<!--              <items>-->
+				<!--                <MenuItem mnemonicParsing="false" text="Action 1" />-->
+				<!--              </items>-->
+				<!--            </Menu>-->
+			</menus>
+		</MenuBar>
+		<TabPane fx:id="basePane" prefHeight="600" side="LEFT" tabClosingPolicy="UNAVAILABLE" tabMinHeight="50.0"
+				tabMinWidth="50.0" AnchorPane.bottomAnchor="20" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0"
+				AnchorPane.topAnchor="28" GridPane.rowIndex="1">
+			<tabs>
+				<Tab fx:id="homeTab" text="Home">
+					<content>
+						<AnchorPane>
+							<HomeView AnchorPane.bottomAnchor="48.0" AnchorPane.leftAnchor="48.0"
+									AnchorPane.rightAnchor="48.0" AnchorPane.topAnchor="40.0"/>
+						</AnchorPane>
+					</content>
+				</Tab>
+				<Tab fx:id="testTab" text="Test">
+					<content>
+						<AnchorPane>
+							<TestView AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+									AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0"/>
+						</AnchorPane>
+					</content>
+				</Tab>
+				<Tab fx:id="ciaTab" text="CIA"/>
+			</tabs>
+		</TabPane>
+		<HBox styleClass="foot-bar" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
+			<Label fx:id="lUsername" visible="false">
+				<graphic>
+					<Circle radius="3" fill="green"/>
+				</graphic>
+				<HBox.margin>
+					<Insets left="16.0"/>
+				</HBox.margin>
+			</Label>
+			<Region minWidth="16" HBox.hgrow="ALWAYS"/>
+			<Label fx:id="lTimer" visible="false">
+				<graphic>
+					<ImageView scaleX="0.75" scaleY="0.75">
+						<Image url="/images/079-clock.png"/>
+					</ImageView>
+				</graphic>
+				<HBox.margin>
+					<Insets right="16.0"/>
+				</HBox.margin>
+			</Label>
+			<HBox fx:id="hbProgress" visible="false" alignment="CENTER_RIGHT">
+				<StackPane alignment="CENTER_RIGHT">
+					<ProgressBar fx:id="progressBar" maxWidth="160" minWidth="100" prefWidth="148" progress="0.2"
+							styleClass="thin"/>
+					<RingProgressIndicator fx:id="progressIndicator" onMouseClicked="#progressClicked" maxWidth="16"/>
+				</StackPane>
+				<Label fx:id="lProgressTitle" text="Progress" prefWidth="164.0" maxWidth="-Infinity" minWidth="32">
+					<HBox.margin>
+						<Insets left="10.0"/>
+					</HBox.margin>
+				</Label>
+			</HBox>
+		</HBox>
+	</children>
+</AnchorPane>

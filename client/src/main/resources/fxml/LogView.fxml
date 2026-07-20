@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?><?import org.fxmisc.richtext.StyleClassedTextArea?>
+<fx:root type="AnchorPane" styleClass="log-area" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.2" fx:controller="uet.fit.client.ui.controller.component.LogViewController">
+    <children>
+        <StyleClassedTextArea fx:id="taLog" editable="false" wrapText="true" AnchorPane.leftAnchor="16" AnchorPane.rightAnchor="16" AnchorPane.bottomAnchor="16" AnchorPane.topAnchor="16"/>
+    </children>
+</fx:root>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Tab?><?import javafx.scene.layout.AnchorPane?><?import org.fxmisc.flowless.VirtualizedScrollPane?><?import org.fxmisc.richtext.CodeArea?>
+<fx:root type="Tab" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1"
+		fx:controller="uet.fit.client.ui.controller.component.SourceCodeTabController">
+	<VirtualizedScrollPane AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.bottomAnchor="0"
+			AnchorPane.topAnchor="0">
+		<content>
+			<CodeArea fx:id="codeArea" editable="false" stylesheets="/css/codearea.css"/>
+		</content>
+	</VirtualizedScrollPane>
+</fx:root>

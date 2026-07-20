@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="274.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uet.fit.client.ui.controller.dialogs.ImportTestCaseController">
+   <children>
+      <Button layoutX="524.0" layoutY="29.0" mnemonicParsing="false" onAction="#browser_Clicked" text="Browser" />
+      <Label layoutX="14.0" layoutY="33.0" prefHeight="18.0" prefWidth="83.0" text="Export file" />
+      <TextArea fx:id="filePathList" layoutX="97.0" layoutY="29.0" prefHeight="212.0" prefWidth="406.0" />
+      <Button layoutX="527.0" layoutY="216.0" mnemonicParsing="false" onAction="#import_Clicked" text="Import" />
+   </children>
+</AnchorPane>

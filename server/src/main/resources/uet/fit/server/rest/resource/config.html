@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>CIA-AUT Config</title>
+	<style>
+        form {
+            display: table;
+        }
+        form > div {
+            display: table-row;
+        }
+        label, input {
+            display: table-cell;
+        }
+	</style>
+</head>
+<body>
+<form method="post">
+	<h2>CIA-AUT Configurations</h2>
+
+	<h3>Compilers and tools:</h3>
+
+	<div>
+		<label for="gppPath">g++ path: </label>
+		<input type="text" name="gppPath" id="gppPath" required value="{{GPP_PATH}}"/>
+	</div>
+
+	<div>
+		<label for="qmakePath">qmake path: </label>
+		<input type="text" name="qmakePath" id="qmakePath" required value="{{QMAKE_PATH}}"/>
+	</div>
+
+	<div>
+		<label for="makePath">make path: </label>
+		<input type="text" name="makePath" id="makePath" required value="{{MAKE_PATH}}"/>
+	</div>
+
+	<h3>Directories:</h3>
+
+	<div>
+		<label for="homePath">CIAUT Home: </label>
+		<input type="text" name="homePath" id="homePath" required value="{{HOME_PATH}}"/>
+	</div>
+
+	<div>
+		<label for="logPath">Log Path: </label>
+		<input type="text" name="logPath" id="logPath" required value="{{LOG_PATH}}"/>
+	</div>
+
+	<h3>Database:</h3>
+
+	<div>
+		<label for="sqlHost">Host: </label>
+		<input type="text" name="sqlHost" id="sqlHost" required value="{{SQL_HOST}}"/>
+	</div>
+
+	<div>
+		<label for="sqlPort">Port: </label>
+		<input type="number" name="sqlPort" id="sqlPort" required min="0" max="65535" value="{{SQL_PORT}}"/>
+	</div>
+
+	<div>
+		<label for="sqlUser">User: </label>
+		<input type="text" name="sqlUser" id="sqlUser" required value="{{SQL_USER}}"/>
+	</div>
+
+	<div>
+		<label for="sqlPassword">Password: </label>
+		<input type="text" name="sqlPassword" id="sqlPassword" required value="{{SQL_PASSWORD}}"/>
+	</div>
+
+	<h3>UT configs:</h3>
+	<div>
+		<label for="funcCallAnalyze">Analyze function call dependencies: </label><br>
+		<input type="checkbox" id="funcCallAnalyze" name="funcCallAnalyze" {{FUNC_CALL}}>
+	</div>
+
+	<h3>CIA configs:</h3>
+
+	<div>
+		<label for="makeJobsCount">Make's parallel jobs count: </label>
+		<input type="number" name="makeJobsCount" id="makeJobsCount" required min="1" max="99"
+				value="{{MAKE_JOBS_COUNT}}"/>
+	</div>
+
+	<h3><input type="submit" value="Save"/></h3>
+</form>
+</body>
+</html>

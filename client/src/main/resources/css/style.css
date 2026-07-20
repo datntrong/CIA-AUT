@@ -1,0 +1,43 @@
+.root {
+	-fx-font-family: 'Arial'
+}
+
+.main-pane {
+	-fx-background-color: #e3ebf1;
+}
+
+.menu-bar {
+	-fx-background-color: #d9d9d9;
+}
+
+.tab {
+	-fx-border-radius: 0;
+	-fx-background-radius: 0;
+	-fx-background-color: #ebecee;
+}
+
+.tab:selected {
+	-fx-background-color: #ffffff;
+}
+
+.tab-pane {
+	-fx-background-color: #ffffff;
+	-fx-border-color: #ffffff;
+}
+
+.tab-header-background {
+	-fx-background-color: #F8F8F6;
+}
+
+.column-header {
+	-fx-background-color: #eeeded;
+}
+
+
+
+
+
+
+
+
+

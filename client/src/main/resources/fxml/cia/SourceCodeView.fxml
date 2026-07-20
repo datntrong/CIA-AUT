@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import org.fxmisc.flowless.VirtualizedScrollPane?><?import org.fxmisc.richtext.CodeArea?>
+<VirtualizedScrollPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+		fx:controller="uet.fit.client.ui.controller.cia.SourceCodeViewController">
+	<content>
+		<CodeArea fx:id="codeArea" editable="false" stylesheets="/css/codearea.css"/>
+	</content>
+</VirtualizedScrollPane>

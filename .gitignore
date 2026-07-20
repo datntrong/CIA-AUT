@@ -1,0 +1,26 @@
+# Eclipse
+.classpath
+.project
+.settings/
+
+# Intellij
+.idea/
+*.iml
+*.iws
+
+.claude/
+
+# Mac
+.DS_Store
+
+# Maven
+log/
+target/
+build
+
+# Local
+# please don't change this file unless it is necessary to do so
+# anything that are not intended to go public should stay in "local"
+local/
+/id-map.csv
+*.log

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+	<Appenders>
+		<!-- CONSOLE -->
+		<Console name="Console" target="SYSTEM_ERR">
+			<PatternLayout pattern="%d{HH:mm:ss.SSS} [%T] [%p] %c - %m%n"/>
+		</Console>
+
+		<!-- CIA -->
+		<RandomAccessFile name="CIA" fileName="${sys:catalina.base}/logs/cia-${date:yyyy-MM-dd_HH-mm-ss-SSS}.log">
+			<PatternLayout pattern="%d{HH:mm:ss.SSS} [%T] [%p] %c - %m%n"/>
+		</RandomAccessFile>
+		<Async name="AsyncCIA">
+			<AppenderRef ref="CIA"/>
+		</Async>
+
+		<!-- AUT -->
+		<RandomAccessFile name="AUT" fileName="${sys:catalina.base}/logs/aut-${date:yyyy-MM-dd_HH-mm-ss-SSS}.log">
+			<PatternLayout pattern="%d{HH:mm:ss.SSS} [%T] [%p] %c - %m%n"/>
+		</RandomAccessFile>
+		<Async name="AsyncAUT">
+			<AppenderRef ref="AUT"/>
+		</Async>
+
+		<!-- SERVER -->
+		<RandomAccessFile name="Server" fileName="${sys:catalina.base}/logs/server-${date:yyyy-MM-dd_HH-mm-ss-SSS}.log">
+			<PatternLayout pattern="%d{HH:mm:ss.SSS} [%T] [%p] %c - %m%n"/>
+		</RandomAccessFile>
+		<Async name="AsyncServer">
+			<AppenderRef ref="Server"/>
+		</Async>
+	</Appenders>
+
+	<Loggers>
+		<Logger name="uet.fit.cia" level="trace">
+			<AppenderRef ref="AsyncCIA"/>
+		</Logger>
+
+		<Logger name="uet.fit.aut" level="trace">
+			<AppenderRef ref="AsyncAUT"/>
+		</Logger>
+
+		<Logger name="uet.fit.server" level="trace">
+			<AppenderRef ref="AsyncServer"/>
+		</Logger>
+
+		<Root level="warn">
+			<AppenderRef ref="Console"/>
+		</Root>
+	</Loggers>
+</Configuration>

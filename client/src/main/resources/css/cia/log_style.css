@@ -1,0 +1,16 @@
+.log-normal, .log-info, .log-error {
+    -fx-border-width: 1px;
+    -fx-border-color: transparent;
+}
+
+.log-info {
+    -fx-text-fill: blue;
+}
+
+.log-error {
+    -fx-text-fill: red;
+}
+
+.log:focused {
+    -fx-border-color: black;
+}

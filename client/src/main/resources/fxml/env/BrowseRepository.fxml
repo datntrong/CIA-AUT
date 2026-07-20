@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?><?import java.util.*?><?import javafx.scene.*?><?import javafx.scene.control.*?><?import javafx.scene.layout.*?>
+
+<?import javafx.scene.image.ImageView?><?import javafx.scene.image.Image?><?import javafx.geometry.Insets?>
+<fx:root type="VBox" spacing="16" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx"
+		xmlns:fx="http://javafx.com/fxml" fx:controller="uet.fit.client.ui.controller.env.BrowseRepositoryController">
+	<children>
+		<HBox alignment="CENTER_LEFT" spacing="8">
+			<Label minWidth="90.0" text="Project" />
+			<TextField fx:id="tfProjectPath" editable="true" maxWidth="Infinity" HBox.hgrow="ALWAYS" />
+			<Button fx:id="btnBrowser" mnemonicParsing="false" onAction="#chooseButton_Clicked" text="Browser">
+				<graphic>
+					<ImageView>
+						<Image url="/images/049-folder-open.png"/>
+					</ImageView>
+				</graphic>
+			</Button>
+		</HBox>
+		<Region maxHeight="Infinity" VBox.vgrow="ALWAYS" />
+		<HBox alignment="CENTER_RIGHT" spacing="8">
+			<Button fx:id="btnClone" mnemonicParsing="false" onAction="#btnClone_Clicked" text="Clone repository" />
+			<Region minWidth="16" HBox.hgrow="ALWAYS" />
+			<Button fx:id="btnNext" onAction="#btnNext_Clicked" disable="true" mnemonicParsing="false" text="Next"/>
+		</HBox>
+	</children>
+	<padding>
+		<Insets bottom="12.0" left="12.0" right="12.0" top="12.0"/>
+	</padding>
+</fx:root>

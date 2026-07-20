@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<fx:root type="Tab" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uet.fit.client.ui.controller.test.TestCaseTabController">
+    <content>
+        <AnchorPane>
+            <children>
+                <TreeTableView fx:id="table" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <columns>
+                        <TreeTableColumn fx:id="colParam" prefWidth="182.5" text="Parameter" />
+                        <TreeTableColumn fx:id="colType" prefWidth="105.0" text="Type" />
+                        <TreeTableColumn fx:id="colInput" prefWidth="105.0" text="Input" />
+                        <TreeTableColumn fx:id="colExpect" prefWidth="105.0" text="Expectation" />
+                        <TreeTableColumn fx:id="colAssert" prefWidth="105.0" text="Assert Method" />
+                    </columns>
+                    <columnResizePolicy>
+                        <TreeTableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                    </columnResizePolicy>
+                </TreeTableView>
+            </children>
+        </AnchorPane>
+    </content>
+</fx:root>

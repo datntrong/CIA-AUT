@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import uet.fit.client.ui.view.LogView?><?import javafx.scene.image.ImageView?><?import javafx.scene.image.Image?><?import uet.fit.client.ui.view.CloneRepoView?><?import uet.fit.client.ui.view.NewUnitTestView?>
+<fx:root type="VBox" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uet.fit.client.ui.controller.HomeController">
+   <children>
+      <TabPane styleClass="no-background" tabClosingPolicy="UNAVAILABLE" tabMinWidth="90" AnchorPane.bottomAnchor="176.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <tabs>
+            <Tab fx:id="tabUT" text="Unit Testing">
+               <VBox>
+                  <padding>
+                     <Insets top="8" bottom="8" right="6" left="6" />
+                  </padding>
+                  <SplitPane dividerPositions="0.5625" orientation="VERTICAL" fx:id="spContainer">
+                     <TabPane fx:id="tabPane" styleClass="no-background" tabClosingPolicy="UNAVAILABLE" tabMinWidth="90" AnchorPane.bottomAnchor="176.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <tabs>
+                           <Tab fx:id="tabRecent" text="Recent">
+                              <content>
+                                 <VBox spacing="16" style="-fx-background-color: #fff;">
+                                    <children>
+                                       <TableView fx:id="tbRecentEnvs" prefHeight="446.0" prefWidth="402.0">
+                                          <columns>
+                                             <TableColumn fx:id="colNameRecent" text="Name" />
+                                             <TableColumn fx:id="colCoverageTypeRecent" text="Coverage type" />
+                                             <TableColumn fx:id="colProjectRecent" text="Project" />
+                                             <TableColumn fx:id="colAuthorRecent" text="Author" />
+                                             <TableColumn fx:id="colLastOpened" text="Last opened" />
+                                          </columns>
+                                          <columnResizePolicy>
+                                             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                          </columnResizePolicy>
+                                       </TableView>
+                                    </children>
+                                    <padding>
+                                       <Insets bottom="12.0" left="12.0" right="12.0" top="12.0" />
+                                    </padding>
+                                 </VBox>
+                              </content>
+                           </Tab>
+                           <Tab fx:id="tabNew">
+                              <graphic>
+                                 <HBox>
+                                    <Label text="New" />
+                                 </HBox>
+                              </graphic>
+                              <content>
+                                 <NewUnitTestView fx:id="paneNewUT"/>
+                              </content>
+                           </Tab>
+                           <Tab text="Open">
+                              <content>
+                                 <VBox spacing="16" style="-fx-background-color: #fff;">
+                                    <children>
+                                       <HBox spacing="8">
+                                          <TextField fx:id="tfSearch" promptText="Search" />
+                                          <Button fx:id="btnRefresh" onAction="#refreshAllEnvironments" text="Refresh">
+                                             <graphic>
+                                                <ImageView>
+                                                   <Image url="/images/303-loop2.png"/>
+                                                </ImageView>
+                                             </graphic>
+                                          </Button>
+                                       </HBox>
+                                       <TableView fx:id="tbAllEnv">
+                                          <columns>
+                                             <TableColumn fx:id="colName" text="Name" />
+                                             <TableColumn fx:id="colCoverageType" text="Coverage type" />
+                                             <TableColumn fx:id="colProject" text="Project" />
+                                             <TableColumn fx:id="colAuthor" text="Author" />
+                                          </columns>
+                                          <columnResizePolicy>
+                                             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                          </columnResizePolicy>
+                                       </TableView>
+                                    </children>
+                                    <padding>
+                                       <Insets bottom="12.0" left="12.0" right="12.0" top="12.0" />
+                                    </padding>
+                                 </VBox>
+                              </content>
+                           </Tab>
+                        </tabs>
+                        <VBox.margin>
+                           <Insets bottom="16.0" />
+                        </VBox.margin>
+                     </TabPane>
+                     <LogView fx:id="taLog" styleClass="log-area" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" />
+                  </SplitPane>
+               </VBox>
+            </Tab>
+            <Tab fx:id="tabCIA" text="CIA">
+               <VBox>
+                  <padding>
+                     <Insets top="8" bottom="8" right="6" left="6" />
+                  </padding>
+                  <CloneRepoView onClone="#cloneCIA" onBrowse="#ciaExistRepository" />
+               </VBox>
+            </Tab>
+         </tabs>
+      </TabPane>
+   </children>
+</fx:root>

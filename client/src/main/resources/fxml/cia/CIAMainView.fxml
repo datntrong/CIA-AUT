@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.SplitPane?><?import javafx.scene.control.Tab?><?import javafx.scene.control.TabPane?>
+<SplitPane fx:id="content" dividerPositions="0.75" orientation="VERTICAL" xmlns="http://javafx.com/javafx"
+		xmlns:fx="http://javafx.com/fxml" fx:controller="uet.fit.client.ui.controller.cia.CIAMainViewController">
+	<TabPane fx:id="tpCIA" stylesheets="/css/componentStyle.css" tabClosingPolicy="UNAVAILABLE">
+		<Tab fx:id="tabCommits" text="Commits"/>
+		<Tab fx:id="tabResults" text="Results"/>
+	</TabPane>
+	<fx:include fx:id="logsView" source="LogsView.fxml"/>
+</SplitPane>

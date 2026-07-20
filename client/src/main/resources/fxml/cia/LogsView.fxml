@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ListView?><?import javafx.scene.control.SplitPane?><?import javafx.scene.control.Tab?><?import javafx.scene.control.TabPane?><?import javafx.scene.control.TextArea?>
+<SplitPane fx:id="content" dividerPositions="0.5" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+		fx:controller="uet.fit.client.ui.controller.cia.LogsViewController">
+	<TabPane stylesheets="/css/componentStyle.css">
+		<Tab fx:id="tabClientLogs" text="Client logs">
+			<ListView fx:id="lvClientLogs" stylesheets="/css/cia/log_style.css"/>
+		</Tab>
+	</TabPane>
+	<TabPane stylesheets="/css/componentStyle.css">
+		<Tab fx:id="tabServerLogs" text="Server logs">
+			<TextArea fx:id="taServerLogs" editable="false"/>
+		</Tab>
+	</TabPane>
+</SplitPane>

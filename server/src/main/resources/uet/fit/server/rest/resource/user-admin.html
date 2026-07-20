@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>CIA-AUT Users Administration</title>
+	<style>
+        form {
+            display: table;
+        }
+
+        form > div {
+            display: table-row;
+        }
+
+        label, input {
+            display: table-cell;
+        }
+
+        .vertical input {
+            display: block;
+			margin: 0 0 12px 0;
+        }
+	</style>
+	<script type="text/javascript">
+
+		function addUser() {
+			var username = document.getElementById('lAddName').value;
+			var password = document.getElementById('lAddPassword').value;
+			// string is not empty and not just whitespace
+			if (/\S/.test(username) && /\S/.test(password)) {
+				username = encodeURI(username);
+				password = encodeURI(password);
+				var url = "../user/add?username=" + username + "&password=" + password;
+				fetch(url, {
+					method: "POST"
+				}).then(res => {
+					if (res.ok)
+						window.location.reload();
+					else
+						alert("Failed to add user");
+				});
+			}
+		}
+
+		function deleteUser() {
+			var username = document.getElementById('lDelete').value;
+			// string is not empty and not just whitespace
+			if (/\S/.test(username)) {
+				username = encodeURI(username);
+				var url = "../user/delete?username=" + username;
+				fetch(url, {
+					method: "DELETE"
+				}).then(res => {
+					if (res.ok)
+						window.location.reload();
+					else
+						alert("Failed to delete user");
+				});
+			}
+		}
+
+		function changePassword() {
+			var username = document.getElementById('lChangeName').value;
+			var oldPw = document.getElementById('lOldPassword').value;
+			var newPw = document.getElementById('lNewPassword').value;
+			var cfPw = document.getElementById('lCfNewPassword').value;
+			// string is not empty and not just whitespace
+			if (/\S/.test(username) && /\S/.test(oldPw) && /\S/.test(newPw) && /\S/.test(cfPw)) {
+				username = encodeURI(username);
+				oldPw = encodeURI(oldPw);
+				newPw = encodeURI(newPw);
+				cfPw = encodeURI(cfPw);
+				var url = "../user/change-password?username=" + username
+					+ "&old=" + oldPw + "&new=" + newPw + "&cf=" + cfPw;
+				fetch(url, {
+					method: "PUT"
+				}).then(res => {
+					if (res.ok)
+						window.location.reload();
+					else
+						alert("Failed to change password");
+				});
+			}
+		}
+	</script>
+</head>
+<body>
+<h2>CIA-AUT Users Administration</h2>
+
+<h3>Users</h3>
+<table>
+	<tr>
+		<th>User</th>
+		<th>Status</th>
+		<th></th>
+	</tr>
+	<!--{{USER_LIST}}-->
+</table>
+
+<h3>Add a user</h3>
+<div class="vertical">
+	<input type="text" name="username" id="lAddName" placeholder="username"/>
+	<input type="text" name="password" id="lAddPassword" placeholder="password"/>
+	<button onclick="addUser()">Apply</button>
+</div>
+
+<h3>Change password</h3>
+<div class="vertical">
+	<input type="text" name="username" id="lChangeName" placeholder="username"/>
+	<input type="text" name="oldPassword" id="lOldPassword" placeholder="old password"/>
+	<input type="text" name="newPassword" id="lNewPassword" placeholder="new password"/>
+	<input type="text" name="cfNewPassword" id="lCfNewPassword" placeholder="confirm password"/>
+	<button onclick="changePassword()">Apply</button>
+</div>
+
+<h3>Delete a user</h3>
+<div class="vertical">
+	<input type="text" name="username" id="lDelete" placeholder="username"/>
+	<button onclick="deleteUser()">Apply</button>
+</div>
+
+</body>
+</html>

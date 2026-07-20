@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ComboBox?><?import javafx.scene.control.Label?><?import javafx.scene.control.TextArea?><?import javafx.scene.control.TitledPane?><?import javafx.scene.layout.ColumnConstraints?><?import javafx.scene.layout.GridPane?><?import javafx.scene.layout.HBox?><?import javafx.scene.layout.RowConstraints?>
+<TitledPane fx:id="content" collapsible="false" HBox.hgrow="ALWAYS" xmlns="http://javafx.com/javafx"
+		xmlns:fx="http://javafx.com/fxml" fx:controller="uet.fit.client.ui.controller.cia.CommitInfoController">
+	<GridPane hgap="4.0" vgap="4.0">
+		<columnConstraints>
+			<ColumnConstraints halignment="RIGHT" hgrow="NEVER"/>
+			<ColumnConstraints halignment="LEFT" hgrow="SOMETIMES"/>
+		</columnConstraints>
+		<rowConstraints>
+			<RowConstraints valignment="CENTER" vgrow="NEVER"/>
+			<RowConstraints valignment="CENTER" vgrow="NEVER"/>
+			<RowConstraints valignment="CENTER" vgrow="NEVER"/>
+			<RowConstraints valignment="CENTER" vgrow="NEVER"/>
+			<RowConstraints valignment="CENTER" vgrow="NEVER"/>
+		</rowConstraints>
+		<Label text="Commit:"/>
+		<Label text="Author:" GridPane.rowIndex="1"/>
+		<Label text="Date:" GridPane.rowIndex="2"/>
+		<Label text="Message:" GridPane.rowIndex="3"/>
+		<Label text="Qt project:" GridPane.rowIndex="4"/>
+		<Label fx:id="lShortHash" GridPane.columnIndex="1"/>
+		<Label fx:id="lAuthor" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+		<Label fx:id="lDate" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+		<TextArea fx:id="taMessage" editable="false" prefColumnCount="0" prefRowCount="3" wrapText="true"
+				GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+		<ComboBox fx:id="cbQtPro" maxHeight="Infinity" maxWidth="Infinity" GridPane.columnIndex="1"
+				GridPane.rowIndex="4"/>
+	</GridPane>
+</TitledPane>

@@ -1,0 +1,49 @@
+.keyword {
+    -fx-fill: purple;
+    -fx-font-weight: bold;
+}
+
+.primitive {
+    -fx-fill: #2ad216;
+    -fx-font-weight: bold;
+}
+
+.semicolon {
+    -fx-font-weight: bold;
+}
+.paren {
+    -fx-fill: firebrick;
+    -fx-font-weight: bold;
+}
+.brace {
+    -fx-fill: darkgreen;
+    -fx-font-weight: bold;
+}
+
+.string {
+    -fx-fill: blue;
+}
+
+.comment {
+    -fx-fill: brown;
+}
+
+.select {
+    -fx-background-color: #f4ffa4;
+}
+
+.styled-text-area .selection {
+    -fx-fill: #c1fffc;
+}
+
+.paragraph-box:has-caret {
+    -fx-background-color: #f2f9fc;
+}
+
+.break{
+    -fx-background-color: #ffe700;
+}
+
+.currentPoint {
+    -fx-background-color: #14e9ff;
+}

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>uet.fit</groupId>
+	<artifactId>cia-aut</artifactId>
+	<version>1.0-SNAPSHOT</version>
+	<modules>
+		<module>config</module>
+		<module>common</module>
+		<module>aut</module>
+		<module>cia</module>
+		<module>report</module>
+		<module>server</module>
+		<module>client</module>
+	</modules>
+	<packaging>pom</packaging>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.jetbrains</groupId>
+			<artifactId>annotations</artifactId>
+			<version>23.0.0</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<directory>${project.basedir}/build/target-${project.build.finalName}</directory>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-enforcer-plugin</artifactId>
+				<version>3.1.0</version>
+				<executions>
+					<execution>
+						<id>enforce-versions</id>
+						<goals>
+							<goal>enforce</goal>
+						</goals>
+						<configuration>
+							<rules>
+								<requireMavenVersion>
+									<version>3.2.5</version>
+								</requireMavenVersion>
+							</rules>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>versions-maven-plugin</artifactId>
+				<version>2.11.0</version>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.10.1</version>
+				<configuration>
+					<source>11</source>
+					<target>11</target>
+					<compilerArgs>
+						<arg>-Xlint</arg>
+					</compilerArgs>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-install-plugin</artifactId>
+				<version>3.0.0-M1</version>
+				<inherited>false</inherited>
+				<executions>
+					<execution>
+						<id>install-cdt-local</id>
+						<phase>initialize</phase>
+						<goals>
+							<goal>install-file</goal>
+						</goals>
+						<configuration>
+							<groupId>org.eclipse.cdt</groupId>
+							<artifactId>org.eclipse.cdt.core</artifactId>
+							<version>7.4.200-SNAPSHOT</version>
+							<packaging>jar</packaging>
+							<file>lib/org.eclipse.cdt.core-7.4.200-SNAPSHOT.jar</file>
+							<sources>lib/org.eclipse.cdt.core-7.4.200-SNAPSHOT-sources.jar</sources>
+							<pomFile>lib/org.eclipse.cdt.core-7.4.200-SNAPSHOT.pom</pomFile>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+	</properties>
+
+	<!-- PLEASE DON'T CHANGE THE GLOBAL POM UNLESS IT IS NECESSARY TO DO SO -->
+
+</project>
